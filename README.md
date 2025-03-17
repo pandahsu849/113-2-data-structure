@@ -14,4 +14,8 @@
 
 [老師的repo](https://github.com/peculab/autogen_project/tree/main)
 
+# :seedling:作業專區
+[HW1：資料抽換及問題抽換](HW1)
+
 # :book:課程筆記區
+
