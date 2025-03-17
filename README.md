@@ -5,3 +5,13 @@
 
 :woman_teacher:授課教授：蔡芸琤
 
+# :link:資源連結區
+[同儕觀摩區](https://docs.google.com/spreadsheets/d/1pLTxpmVJRoIrFS3xNUEIpwjLHSnkeFrQRoi_mZlSr_s/edit?gid=1996231136#gid=1996231136)
+
+[Readme語法](https://docs.github.com/zh/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+
+[Readme emoji](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)
+
+[老師的repo](https://github.com/peculab/autogen_project/tree/main)
+
+# :book:課程筆記區
