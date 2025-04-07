@@ -21,5 +21,6 @@
 
 [HW2：DRai資料抽換及問題抽換](HW2)
 
+![image](https://github.com/pandahsu849/113-2-data-structure/blob/main/HW2/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-04-08%20004809.png)
 # :mage:期末專題區
 [第一次提案報告](https://www.youtube.com/watch?v=HNZi0XfPRjk)
