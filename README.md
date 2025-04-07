@@ -17,6 +17,9 @@
 # :seedling:作業專區
 [HW1：資料抽換及問題抽換](HW1)
 
+![image](https://github.com/pandahsu849/113-2-data-structure/blob/main/HWI/AI%20Agent%E6%9E%B6%E6%A7%8B%E5%9C%96.png)
+
 [HW2：DRai資料抽換及問題抽換](HW2)
+
 # :mage:期末專題區
 [第一次提案報告](https://www.youtube.com/watch?v=HNZi0XfPRjk)
