@@ -17,5 +17,6 @@
 # :seedling:作業專區
 [HW1：資料抽換及問題抽換](HW1)
 
-# :book:課程筆記區
-
+[HW2：DRai資料抽換及問題抽換](HW2)
+# :mage:期末專題區
+[第一次提案報告](https://www.youtube.com/watch?v=HNZi0XfPRjk)
