@@ -15,7 +15,7 @@
 [老師的repo](https://github.com/peculab/autogen_project/tree/main)
 
 # :seedling:作業專區
-[HW1：資料抽換及問題抽換](HW1)
+[HW1：AIAgent資料抽換及問題抽換](HW1)
 
 ![image](https://github.com/pandahsu849/113-2-data-structure/blob/main/HWI/AI%20Agent%E6%9E%B6%E6%A7%8B%E5%9C%96.png)
 
