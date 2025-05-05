@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>客服對話分析系統</title>
+  <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      margin: 0;
+      padding: 30px;
+      background: linear-gradient(135deg, #b2ebf2, #f8bbd0);
+      font-size: 35px;
+    }
+    h2, h3, h4 { text-align: center; color: #2c3e50; }
+    form, #status, #ai-feedback-container, #student-feedback-container {
+      background: #fff; border: 1px solid #ddd; padding: 20px;
+      border-radius: 10px; margin: 30px auto; max-width: 1500px;
+    }
+    input[type="file"], button {
+      width: 100%; padding: 12px; font-size: 30px; border-radius: 6px;
+    }
+    button { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #45a049; }
+    img { display: block; max-width: 90%; margin: 20px auto; border-radius: 4px; }
+    #ai-feedback-text, .student-sequence { white-space: pre-wrap; line-height: 1.6em; font-size: 30px; }
+  </style>
+</head>
+<body>
+
+<h2>💼 客服對話分析系統</h2>
+
+<form id="upload-form" enctype="multipart/form-data">
+  <label>📂 選擇客服對話紀錄（CSV 檔）</label>
+  <input type="file" id="file" name="file" accept=".csv" required>
+  <button type="submit">🚀 上傳並分析</button>
+</form>
+
+<div id="status"></div>
+
+<h3>📈 客戶情緒變化圖</h3>
+<img id="moodtrend" src="" alt="尚未產生情緒圖">
+
+<h3>🗂️ 對話類型比例圖</h3>
+<img id="aspect_bar" src="" alt="尚未產生類型圖">
+
+<div id="ai-feedback-container">
+  <h3>💡 AI 給客服團隊的改善建議</h3>
+  <p id="ai-feedback-text"></p>
+</div>
+
+<div id="student-feedback-container">
+  <h3>📋 每位顧客的對話類型順序</h3>
+  <div id="student-sequence-list"></div>
+</div>
+
+<div style="text-align:center">
+  <button onclick="downloadPDF()">📄 下載 PDF 報表</button>
+</div>
+
+<script>
+const socket = io();
+let latestFeedback = "";
+let latestSequence = {};
+
+socket.on("status", function (data) {
+  document.getElementById("status").innerText += data.message + "\n";
+});
+
+socket.on("result", function (data) {
+  if (data.moodtrend_img) document.getElementById("moodtrend").src = data.moodtrend_img;
+  if (data.aspect_bar_img) document.getElementById("aspect_bar").src = data.aspect_bar_img;
+  if (data.ai_feedback) {
+    document.getElementById("ai-feedback-text").innerText = data.ai_feedback;
+    document.getElementById("ai-feedback-container").style.display = "block";
+    latestFeedback = data.ai_feedback;
+  }
+
+  if (data.aspect_sequence_json) {
+    fetch(data.aspect_sequence_json).then(res => res.json()).then(json => {
+      latestSequence = json;
+      let html = "";
+      for (const student in json) {
+        if (student.includes("訪問者") || student.includes("訪談者")) continue;
+        html += `<div class='student-sequence'><strong>${student}</strong>：${json[student].join(' ➜ ')}</div><hr>`;
+      }
+      document.getElementById("student-sequence-list").innerHTML = html;
+      document.getElementById("student-feedback-container").style.display = "block";
+
+      fetch("/set_feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ai_feedback: latestFeedback,
+          student_sequences: latestSequence,
+          moodtrend_img: data.moodtrend_img,
+          aspect_bar_img: data.aspect_bar_img
+        })
+      });
+    });
+  }
+});
+
+function downloadPDF() {
+  window.open("/generate_pdf", "_blank");
+}
+
+document.getElementById("upload-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const formData = new FormData();
+  const fileInput = document.getElementById("file");
+  formData.append("file", fileInput.files[0]);
+  fetch("/upload", { method: "POST", body: formData })
+    .then(() => { document.getElementById("status").innerText = "✅ 檔案已上傳並開始分析...\n"; });
+});
+</script>
+</body>
+</html>
