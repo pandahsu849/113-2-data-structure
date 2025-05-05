@@ -31,6 +31,12 @@
 
 ![image](https://github.com/pandahsu849/113-2-data-structure/blob/main/HW4/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-04-15%20114137.png)
 ![image](https://github.com/pandahsu849/113-2-data-structure/blob/main/HW4/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-04-15%20114148.png)
+
+[HW5:情緒分析及圖表生成](HW5)
+
+![image](https://github.com/pandahsu849/113-2-data-structure/blob/main/HW5/static/aspect_bar_customer_service_sample.png)
+
+
 # :mage:期末專題區
 [第一次提案報告](https://www.youtube.com/watch?v=HNZi0XfPRjk)
 
