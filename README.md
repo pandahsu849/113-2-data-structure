@@ -34,6 +34,7 @@
 
 [HW5:情緒分析及圖表生成](HW5)
 
+![image](https://github.com/pandahsu849/113-2-data-structure/blob/main/HW5/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-05-12%20232445.png)
 ![image](https://github.com/pandahsu849/113-2-data-structure/blob/main/HW5/static/aspect_bar_customer_service_sample.png)
 ![image](https://github.com/pandahsu849/113-2-data-structure/blob/main/HW5/static/moodtrend_customer_service_sample.png)
 
